@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providance Media - Digital Marketing Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background-color: #f9fafb;
+        }
+        
+        /* Page Load Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes rotateIn {
+            0% {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .animate-fade-in-delay-1 {
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .animate-fade-in-delay-2 {
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .animate-fade-in-delay-3 {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-rotate-in {
+            animation: rotateIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* Scroll-based Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animate-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animate-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animate-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Hover Animations */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.2), 0 15px 15px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-hover {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn-hover:hover::before {
+            transform: translateX(0);
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Click/Toggle Animations */
+        .click-bounce:active {
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+        }
+        
+        .menu-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .menu-icon.active {
+            transform: rotate(90deg);
+        }
+        
+        /* Micro-interactions */
+        input, textarea {
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .ripple:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Looping Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .rotate-animation {
+            animation: rotate 20s linear infinite;
+        }
+        
+        /* 3D Effects */
+        .perspective {
+            perspective: 1000px;
+        }
+        
+        .transform-3d {
+            transform-style: preserve-3d;
+        }
+        
+        .tilt {
+            transition: transform 0.5s ease;
+        }
+        
+        .tilt:hover {
+            transform: rotateX(5deg) rotateY(5deg);
+        }
+        
+        /* Fixed Flip Card Styles */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .flip-card-front {
+            background-color: white;
+        }
+        
+        .flip-card-back {
+            background-color: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        /* Background Styles */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        /* Iframe background styles */
+        .iframe-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .iframe-background iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0.6;
+            transform: scale(1.2);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Decorative Elements */
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        /* Section spacing fix */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 0;
+        }
+        
+        #services {
+            z-index: 10;
+            background-color: #f9fafb;
+            padding: 8rem 0;
+        }
+        
+        #work {
+            z-index: 5;
+            background-color: white;
+            padding: 8rem 0;
+        }
+        
+        /* Service cards fix */
+        .service-card {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+            display: block;
+            height: 400px;
+        }
+        
+        /* Portfolio items fix */
+        .portfolio-item {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        /* Section separator */
+        .section-separator {
+            height: 80px;
+            background: linear-gradient(to bottom, #f9fafb, white);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Smooth scroll animations */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tilt:hover {
+                transform: none;
+            }
+            
+            .flip-card:hover .flip-card-inner {
+                transform: none;
+            }
+            
+            #services, #work {
+                padding: 4rem 0;
+            }
+            
+            .section-separator {
+                height: 40px;
+            }
+            
+            .flip-card {
+                height: 350px;
+            }
+            
+            .flip-card-front, .flip-card-back {
+                padding: 1.5rem;
+            }
+            
+            .iframe-background iframe {
+                transform: scale(1.5);
+            }
+            
+            .logo-container img {
+                max-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800 opacity-0 animate-fade-in">
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50 animate-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center logo-container">
+                    <img src="adarshalogo2-Picsart-AiImageEnhancer-Picsart-BackgroundRemover.png" alt="Providance Media" class="h-12 md:h-16 w-auto">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Home</a>
+                        <a href="#work" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Our Work</a>
+                        <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Services</a>
+                        <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition">About Us</a>
+                        <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                        <a href="#contact" class="ml-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition btn-hover ripple">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none menu-icon">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md-hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Home</a>
+                <a href="#work" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Our Work</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Services</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About Us</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
+                <a href="#contact" class="block w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white relative min-h-screen">
+        <!-- Iframe Background -->
+        <div class="iframe-background">
+            <iframe src='https://my.spline.design/worldplanet-wZk9uHGLT3pDnCh4AHBcjO5C/' frameborder='0' width='100%' height='100%'></iframe>
+        </div>
+        
+        <div class="circle-decoration circle-1"></div>
+        <div class="circle-decoration circle-2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center min-h-[80vh]">
+                <div class="mb-12 lg:mb-0 animate-slide-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Grow Your Business With <span class="text-yellow-300">Providance Media</span></h1>
+                    <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-delay-1">We craft data-driven marketing strategies that deliver measurable results and accelerate your business growth.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-delay-2">
+                        <a href="#contact" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition duration-300 shadow-lg btn-hover ripple pulse-animation">Get Started</a>
+                        <a href="#services" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-800 bg-opacity-60 hover:bg-opacity-80 md:py-4 md:text-lg md:px-10 transition duration-300 btn-hover ripple">Our Services</a>
+                    </div>
+                </div>
+                <div class="relative animate-scale-in">
+                    <div class="perspective">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="Digital marketing" class="rounded-lg shadow-2xl w-full h-auto tilt">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-yellow-400 rounded-full opacity-20 float-animation"></div>
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-purple-400 rounded-full opacity-20 float-animation" style="animation-delay: 1s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our <span class="text-indigo-600">Core Services</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card scroll-animate scroll-animate-left">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-code text-indigo-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Web Development</h3>
+                                <p class="text-gray-600 mb-4">We build high-performance websites tailored to your business goals</p>
+                                <a href="#contact" class="text-indigo-600 font-medium hover:text-indigo-700 inline-flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3 class="text-xl font-bold mb-3">Web Development</h3>
+                                <div class="text-left">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-green-400 mr-2">✅</span>
+                                            <span>Business Websites</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-400 mr-2">✅</span>
+                                            <span>E-commerce Websites</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-400 mr-2">✅</span>
+                                            <span>Landing Pages & Funnels</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-400 mr-2">✅</span>
+                                            <span>Monthly Website Maintenance</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-400 mr-2">✅</span>
+                                            <span>Complete SEO Services (On-page, Off-page, Technical SEO)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card scroll-animate scroll-animate-left" style="animation-delay: 0.1s;">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-mobile-alt text-purple-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">App Development</h3>
+                                <p class="text-gray-600 mb-4">We turn your ideas into feature-rich, scalable mobile apps</p>
+                                <a href="#contact" class="text-indigo-600 font-medium hover:text-indigo-700 inline-flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                            <div class="flip-card-back" style="background-color: #764ba2;">
+                                <h3 class="text-xl font-bold mb-3">App Development</h3>
+                                <div class="text-left">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2">📱</span>
+                                            <span>Food Delivery Apps</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2">👥</span>
+                                            <span>Social Media Apps</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2">🛒</span>
+                                            <span>E-commerce Apps</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2">🚀</span>
+                                            <span>Custom Mobile Solutions (Android/iOS)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card scroll-animate scroll-animate-right" style="animation-delay: 0.2s;">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-share-alt text-blue-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Social Media Management</h3>
+                                <p class="text-gray-600 mb-4">Grow your online presence with our complete creative & content support</p>
+                                <a href="#contact" class="text-indigo-600 font-medium hover:text-indigo-700 inline-flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                            <div class="flip-card-back" style="background-color: #3b82f6;">
+                                <h3 class="text-xl font-bold mb-3">Social Media Management</h3>
+                                <div class="text-left">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-blue-200 mr-2">📲</span>
+                                            <span>Instagram, Facebook & YouTube Page Management</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-200 mr-2">🎞️</span>
+                                            <span>Video Editing & Reels</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-200 mr-2">🎨</span>
+                                            <span>Graphic Design & Post Designing</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-200 mr-2">🖌️</span>
+                                            <span>Logo Design</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-200 mr-2">🎯</span>
+                                            <span>Ad Creative Designing (static, animated, carousel, etc.)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card scroll-animate scroll-animate-right" style="animation-delay: 0.3s;">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                                    <i class="fas fa-ad text-green-600 text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Paid Advertising Services</h3>
+                                <p class="text-gray-600 mb-4">Drive leads, sales, and brand awareness with expert ad management</p>
+                                <a href="#contact" class="text-indigo-600 font-medium hover:text-indigo-700 inline-flex items-center">Learn more <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                            <div class="flip-card-back" style="background-color: #10b981;">
+                                <h3 class="text-xl font-bold mb-3">Paid Advertising Services</h3>
+                                <div class="text-left">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-green-200 mr-2">🔍</span>
+                                            <span>Google Search & Display Ads</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-200 mr-2">📘</span>
+                                            <span>Facebook Ads</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-200 mr-2">📸</span>
+                                            <span>Instagram Ads</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-200 mr-2">👻</span>
+                                            <span>Snapchat Ads</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-200 mr-2">🎯</span>
+                                            <span>Full-Funnel Campaign Strategy & Optimization</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Separator -->
+    <div class="section-separator"></div>
+    <!-- Portfolio Section -->
+    <section id="work" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our <span class="text-indigo-600">Work</span></h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">See how we've helped businesses like yours achieve remarkable results.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Project 1 -->
+                <div class="portfolio-item scroll-animate scroll-animate-left">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="Project 1" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-1">E-Commerce Boost</h3>
+                            <p class="text-indigo-200 font-medium">Fashion Boutique</p>
+                            <div class="mt-3 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <p class="text-white text-sm mb-3">Increased online sales by 240% in 6 months through targeted social ads and SEO.</p>
+                                <a href="#" class="text-white text-sm font-medium hover:text-indigo-300 inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item scroll-animate scroll-animate-scale" style="animation-delay: 0.1s;">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="Project 2" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Brand Awareness</h3>
+                            <p class="text-indigo-200 font-medium">Tech Startup</p>
+                            <div class="mt-3 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <p class="text-white text-sm mb-3">Grew social media following by 500% and engagement by 300% in 4 months.</p>
+                                <a href="#" class="text-white text-sm font-medium hover:text-indigo-300 inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item scroll-animate scroll-animate-right" style="animation-delay: 0.2s;">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="Project 3" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Lead Generation</h3>
+                            <p class="text-indigo-200 font-medium">B2B Service</p>
+                            <div class="mt-3 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <p class="text-white text-sm mb-3">Generated 1200+ qualified leads in 3 months through content marketing and PPC.</p>
+                                <a href="#" class="text-white text-sm font-medium hover:text-indigo-300 inline-flex items-center">View Case Study <i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- New Project - Quick Bill -->
+                <div class="portfolio-item scroll-animate scroll-animate-right" style="animation-delay: 0.3s;">
+                    <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                        <div class="w-full h-64 bg-gradient-to-br from-blue-500 to-indigo-700 flex items-center justify-center transition duration-500 group-hover:scale-110">
+                            <i class="fas fa-file-invoice-dollar text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-1">Quick Bill</h3>
+                            <p class="text-indigo-200 font-medium">Billing Solution</p>
+                            <div class="mt-3 opacity-0 group-hover:opacity-100 transition duration-300">
+                                <p class="text-white text-sm mb-3">Developed a comprehensive billing platform that streamlined invoicing processes for 200+ businesses.</p>
+                                <a href="https://quick-bill-nine.vercel.app/" target="_blank" class="text-white text-sm font-medium hover:text-indigo-300 inline-flex items-center">Visit Website <i class="fas fa-external-link-alt ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg transition duration-300 btn-hover ripple">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0 scroll-animate scroll-animate-left">
+                    <div class="perspective">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="Our team" class="rounded-xl shadow-lg w-full tilt">
+                    </div>
+                </div>
+                <div class="scroll-animate scroll-animate-right">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About <span class="text-indigo-600">Providance Media</span></h2>
+                    <p class="text-lg text-gray-600 mb-6">We're a team of passionate digital marketers, strategists, and creatives dedicated to helping businesses thrive in the digital landscape.</p>
+                    <p class="text-gray-600 mb-6">Founded in 2015, we've grown from a small startup to a trusted agency serving clients across multiple industries. Our approach combines data-driven strategies with creative execution to deliver measurable results.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                            <h3 class="text-xl font-bold text-indigo-600 mb-2">50+</h3>
+                            <p class="text-gray-600">Happy Clients</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                            <h3 class="text-xl font-bold text-indigo-600 mb-2">12</h3>
+                            <p class="text-gray-600">Industry Awards</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                            <h3 class="text-xl font-bold text-indigo-600 mb-2">15</h3>
+                            <p class="text-gray-600">Team Members</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm transform transition-transform duration-300 hover:scale-105">
+                            <h3 class="text-xl font-bold text-indigo-600 mb-2">100%</h3>
+                            <p class="text-gray-600">Client Satisfaction</p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg transition duration-300 btn-hover ripple">
+                        Meet Our Team <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 bg-indigo-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="text-yellow-300">Clients Say</span></h2>
+                <p class="text-lg opacity-90 max-w-3xl mx-auto">Don't just take our word for it - hear from businesses we've helped grow.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="scroll-animate scroll-animate-left">
+                    <div class="testimonial-card rounded-xl p-8 text-gray-800">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Ananya Sharma" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Ananya Sharma</h4>
+                                <p class="text-indigo-600">CEO, Saree Emporium</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6">"Providance Media transformed our online presence. Our e-commerce sales increased by 180% in just 4 months after implementing their SEO and content marketing strategies. Their team is professional, responsive, and truly understands our business goals."</p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="scroll-animate scroll-animate-right" style="animation-delay: 0.2s;">
+                    <div class="testimonial-card rounded-xl p-8 text-gray-800">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Rajiv Mehta" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Rajiv Mehta</h4>
+                                <p class="text-indigo-600">Founder, TechSolutions India</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6">"The PPC campaigns Providance Media created for us delivered a 5x ROI in the first quarter. Their data-driven approach and constant optimization helped us scale our lead generation while reducing our cost per acquisition. They're now an integral part of our growth strategy."</p>
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0 scroll-animate scroll-animate-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to <span class="text-indigo-600">Grow Together?</span></h2>
+                    <p class="text-lg text-gray-600 mb-8">Get in touch with our team to discuss how we can help your business achieve its digital marketing goals.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Our Office</h4>
+                                <p class="text-gray-600">Remote - Global Team<br>Working from Everywhere</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900"><a href="mailto:providencemedia.in@gmail.com">Email Us</a></h4>
+                                <p class="text-gray-600">providencemedia.in@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start transform transition-transform duration-300 hover:translate-x-2">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900"><a href="tel:+918260110747">Call me</a></h4>
+                                <p class="text-gray-600">+91 8260110747<br>Mon-Fri, 9am-6pm IST</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-900 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-600 hover:text-white transition transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8 shadow-lg scroll-animate scroll-animate-right">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg transition duration-300 flex items-center justify-center btn-hover ripple click-bounce">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="scroll-animate">
+                    <div class="logo-container mb-4">
+                        <img src="adarshalogo2-Picsart-AiImageEnhancer-Picsart-BackgroundRemover.png" alt="Providance Media" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 mb-4">Helping businesses grow through innovative digital marketing strategies since 2015.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.1s;">
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">App Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Social Media Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Paid Advertising</a></li>
+                       <li><a href="https://quick-bill-nine.vercel.app/" target="_blank" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Quick Bill</a></li>
+                    </ul>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.2s;">
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Our Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.3s;">
+                    <h4 class="text-lg font-semibold mb-4">Featured Projects</h4>
+                    <ul class="space-y-2">
+                        
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">E-Commerce Boost</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Brand Awareness</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-x-1 inline-block">Lead Generation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Providance Media. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-y-1 inline-block">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-y-1 inline-block">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition transform hover:translate-y-1 inline-block">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.classList.toggle('active');
+        });
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                // Create a custom notification instead of alert
+                showNotification('Please fill in all fields', 'error');
+                return;
+            }
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show a success message
+            showNotification(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`, 'success');
+            
+            // Reset form
+            this.reset();
+        });
+        // Custom notification function
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 translate-x-full`;
+            
+            if (type === 'success') {
+                notification.classList.add('bg-green-500', 'text-white');
+            } else {
+                notification.classList.add('bg-red-500', 'text-white');
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 10);
+            
+            // Animate out and remove
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        document.getElementById('mobile-menu-button').classList.remove('active');
+                    }
+                }
+            });
+        });
+        // Enhanced scroll-based animations
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+        
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+        
+        const displayScrollElement = (element) => {
+            element.classList.add('active');
+        };
+        
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+        
+        // Add scroll event listener with throttling for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            
+            scrollTimeout = window.requestAnimationFrame(() => {
+                handleScrollAnimation();
+            });
+        }, { passive: true });
+        
+        // Initial check on page load
+        handleScrollAnimation();
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.gradient-bg');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        // Add 3D tilt effect to cards
+        const cards = document.querySelectorAll('.tilt');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+        // Add ripple effect to buttons
+        const buttons = document.querySelectorAll('.ripple');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple-effect');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        // Add smooth reveal animation for sections
+        const revealSections = () => {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize section reveal
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+    </script>
+</body>
+</html>
